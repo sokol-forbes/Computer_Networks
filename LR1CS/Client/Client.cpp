@@ -41,6 +41,7 @@ int main()
 
 	recv(Connection, result, sizeof(result), NULL);
 	cout << result;
+	//cout << sizeof(char);
 
 	return 0;
 }
