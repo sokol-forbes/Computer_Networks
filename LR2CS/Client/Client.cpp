@@ -8,11 +8,11 @@
 using namespace std;
 
 
-//int get_number(int);
+int check_number();
 
 int main()
 {
-	//setlocale(LC_ALL, "Russian");
+	
 	cout << "****** CLIENT *******" << endl;
 	WSADATA WSAData;
 	WORD DLLVersion = MAKEWORD(2, 2);
@@ -30,71 +30,65 @@ int main()
 
 
 	int number;
-
-	cout << "Enter number : ";
-	cin >> number;
-	//int = get_number(2);
+	do
+	{
+		cout << "Enter number : ";
+	} while ((number = check_number()) == -1);
+	
+	
 	sendto(sClient, (char*)&number, sizeof(int), 0, (SOCKADDR*)&addr, sizeof(addr));
 
-	/*cout << endl << "Enter month: ";
-	month = get_number(2);
-	sendto(sClient, (char*)&month, sizeof(month), 0, (SOCKADDR*)&addr, sizeof(addr));
-
-	cout << endl << "Enter year : ";
-	year = get_number(10);
-	sendto(sClient, (char*)&year, sizeof(year), 0, (SOCKADDR*)&addr, sizeof(addr));*/
+	
 
 	int size = sizeof(addr);
-	//bool check = 0;
+	
 	recvfrom(sClient, (char*)&number, sizeof(number), 0, (SOCKADDR*)&addr, &size);
+	cout << endl;
 
 	 cout <<number<< endl;
-	//else cout << endl << "false";
+	
 
 
 }
 
 
-//int get_number(int length)
-//{
-//	int index = 0;
-//	char ch;
-//	char str[20];
-//	do
-//	{
-//		ch = _getch();
-//		if (ch == '\r' && index == 0)
-//		{
-//			ch = 0;
-//		}
-//		else if (index == 0 && ((ch >= '1' && ch <= '9')) && ch != 8)
-//		{
-//			cout << ch;
-//			str[index] = ch;
-//			index++;
-//		}
-//		else if (index > 0)
-//		{
-//			if (ch == 8)
-//			{
-//				index--;
-//				str[index] = '\0';
-//				cout << "\b \b";
-//			}
-//			else if (index > length - 1)
-//			{
-//				;
-//			}
-//			else if (ch >= '0' && ch <= '9')
-//			{
-//				cout << ch;
-//				str[index] = ch;
-//				index++;
-//			}
-//		}
-//	} while (ch != '\r');
-//	str[index + 1] = '\0';
-//	return atoi(str);
-//}
-//
-//
+int  check_number()
+{
+	char s;
+	int j = 0, i = 0;
+	while ((s = _getch()) != '\r')
+	{
+		if (s == 8)
+		{
+			if (i)
+			{
+				i--;
+				cout << (char)8 << " " << char(8);
+				j /= 10;
+			}
+		}
+		else if (i >= 5)
+		{
+			system("cls");
+			cout << "Number must consist of 5 mumbers\n" << endl;
+		 system("pause & cls");
+			return -1;
+		}
+		else if (s >= '0' && s <= '9')
+		{
+			cout << s;
+			j = j * 10 + (s - '0');
+			i++;
+		}
+	}
+
+	if (s == '\r' && i)
+		return j;
+	else
+	{
+		system("cls");
+		cout << "Input error!\n" << endl;
+		system("pause & cls");
+		return -1;
+	}
+}

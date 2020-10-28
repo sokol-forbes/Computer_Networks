@@ -33,17 +33,7 @@ int main()
 	int size = sizeof(addr);
 	int number;
 	recvfrom(sListen, (char*)&number, sizeof(number), 0, (SOCKADDR*)&addr, &size);
-	//recvfrom(sListen, (char*)&month, sizeof(day), 0, (SOCKADDR*)&addr, &size);
-	//recvfrom(sListen, (char*)&year, sizeof(day), 0, (SOCKADDR*)&addr, &size);
-
-
-	/*cout << "День : " << day << endl;
-	cout << "Месяц : " << month << endl;
-	cout << "Год : " << year << endl;*/
-
-	//bool check = checkdate(day, month, year);
-	/*if (check) cout << "true";
-	else cout << "false";*/
+	
 	number=pro_sort(number);
 	sendto(sListen, (char*)&number, sizeof(number), 0, (SOCKADDR*)&addr, sizeof(addr));
 
@@ -72,21 +62,5 @@ int pro_sort(int number)
 		number += result[i] * pow(10, j);
 	}
 	return number;
-	/*if (year > 0 && day > 0 && day < 32 && month > 0 && month < 13 && year > 0)
-	{
-		int leap = 0;
-		if (year % 400 == 0)
-			leap++;
-		else if (year % 100 == 0)
-			;
-		else if (year % 4 == 0)
-			leap++;
-
-		if (((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && (day > 0 && day <= 31)) || ((month == 4 || month == 6 || month == 9 || month == 11) && (day > 0 && day <= 30)) || (leap == 1 && month == 2 && (day > 0 && day <= 29)) || (leap == 0 && month == 2 && (day > 0 && day <= 28)))
-		{
-
-			return true;
-		}
-	}
-	return false;*/
+	
 }

@@ -1,0 +1,3 @@
+﻿  Server.cpp
+C:\Users\DELL\source\repos\Computer_Networcs\LR3CS\Server\Server.cpp(32,37): warning C4018: <: несоответствие типов со знаком и без знака
+  Server.vcxproj -> C:\Users\DELL\source\repos\Computer_Networcs\LR3CS\Server\Debug\Server.exe
