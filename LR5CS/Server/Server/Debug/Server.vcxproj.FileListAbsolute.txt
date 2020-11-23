@@ -1,0 +1,2 @@
+C:\Users\DELL\source\repos\Computer_Networcs\LR5CS\Server\Server\Debug\Server.exe
+C:\Users\DELL\source\repos\Computer_Networcs\LR5CS\Server\Server\Debug\Server.pdb

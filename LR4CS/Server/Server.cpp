@@ -93,11 +93,11 @@ int main()
 
 void add_list_employees()
 {
-	employee[0] = Employee("Vladislav","Borovoi","Andreeviz", 1569872, 120, 100);
-	employee[1] = Employee("Zenja", "Dolsky", "Alexandroviz", 1975238, 150, 60);
-	employee[2] = Employee("Vanya", "Seluavko", "Alexandroviz", 1438954,15, 120);
-	employee[3] = Employee("Margo", "Rusheva", "Vladislavovna", 24687135, 130, 90);
-	employee[4] = Employee("Kiril", "Sheshco", "Artemoviz", 7521368, 160, 150);
+	employee[0] = Employee("Vadim","Loput","Alexandrovich", 1569872, 120, 100);
+	employee[1] = Employee("Maksim", "Belogriwiy", "Urievich", 1975238, 150, 60);
+	employee[2] = Employee("Denia", "Miseiko", "Alexandroviz", 1438954,15, 120);
+	employee[3] = Employee("Vlad", "Karpovich", "Vitalievich", 24687135, 130, 90);
+	employee[4] = Employee("Anton", "Vinokurov", "Artemovich", 7521368, 160, 150);
 }
 
 void task()
